@@ -193,7 +193,7 @@ contract AllowlistNFT is ERC721A, Ownable2Step {
     }
 
     /**
-     * @dev Function to set the base URI
+     * @dev Function to set the base URIz
      * @param _uri Base URI of the NFT
      */
     function setBaseUri(string calldata _uri) external onlyOwner {
