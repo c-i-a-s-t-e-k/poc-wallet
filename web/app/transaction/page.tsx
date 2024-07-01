@@ -1,17 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Banner from '@/components/layout/banner/banner';
 import Footer from '@/components/layout/footer/Footer';
 import Header from '@/components/layout/header/Header';
 import Main from '@/components/layout/Main';
-import BuyMeCoffeeContractDemo from './_components/ContractDemo';
+import Transaction from './_components/Transaction';
 
 /**
  * Use the page component to wrap the components
  * that you want to render on the page.
  */
-export default function BuyMeCoffeePage() {
+export default function MakeTransactionPage() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -22,13 +21,19 @@ export default function BuyMeCoffeePage() {
   if (!isMounted) {
     return null;
   }
+  const handleTransactionSubmit = (destinationAddress: string, amount: number) => {
+    // Obsługa danych transakcji
+    console.log('Transaction submitted with:');
+    console.log('Destination Address:', destinationAddress);
+    console.log('Amount:', amount);
+    // Tutaj możesz dodać logikę obsługi transakcji
+  };
 
   return (
     <>
       <Header />
       <Main>
-        <Banner pageName="Make Transaction" pageUrl="transaction" />
-        <BuyMeCoffeeContractDemo />
+        <Transaction onSubmit={handleTransactionSubmit} /> 
       </Main>
       <Footer />
     </>
