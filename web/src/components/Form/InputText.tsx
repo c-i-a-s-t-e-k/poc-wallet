@@ -10,7 +10,7 @@ export default function InputText({
   id: string;
   placeholder: string;
   onChange: (evt: { target: { value: string } }) => void;
-  disabled: boolean;
+  disabled?: boolean;
   required?: boolean;
 }) {
   return (
