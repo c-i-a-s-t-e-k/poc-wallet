@@ -22,8 +22,8 @@ export function createWagmiConfig(rpcUrl: string, projectId?: string) {
     ],
     ssr: true,
     transports: {
-      [baseSepolia.id]: http(baseSepoliaUrl),
-      [base.id]: http(baseUrl),
+      [baseSepolia.id]: http(),
+      [base.id]: http(),
     },
   });
 }

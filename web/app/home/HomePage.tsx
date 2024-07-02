@@ -11,10 +11,7 @@ import Header from '@/components/layout/header/Header';
 export default function HomePage() {
   const { address, isConnected, status, chain } = useAccount();
   const [error, setError] = useState<string | null>(null);
-  const { data: balance, isError, isLoading, refetch, error: balanceError } = useBalance({
-    address,
-    chainId: chain?.id,
-  });
+  const { data: balance, isError, isLoading, refetch, error: balanceError } = useBalance({address});
   
   useEffect(() => {
     
@@ -28,7 +25,6 @@ export default function HomePage() {
   useEffect(() => {
     setError(null);
   }, [address]);
-
 
   return (
     <>
@@ -51,7 +47,7 @@ export default function HomePage() {
                   ? 'Loading...'
                   : isError
                   ? 'Error fetching balance'
-                  : `${balance} ETH`}
+                  : ` ${balance?.formatted} ${balance?.symbol}`}
               </li>
               <li>
                 <b>chain</b>: {chain?.name} {chain?.id}
